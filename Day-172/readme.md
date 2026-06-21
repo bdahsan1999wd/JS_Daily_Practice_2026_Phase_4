@@ -59,15 +59,6 @@ Must have at least 1 action
   "Updated profile"
 )` ➔
 
-  **Manual Verify:**
-  - device="Mobile", location="Dhaka", sessionId="SES-881"
-  - totalActions = 3
-  - activityLog:
-    - `[SES-881] U-301 → Logged in`
-    - `[SES-881] U-301 → Viewed dashboard`
-    - `[SES-881] U-301 → Updated profile`
-  - sessionSummary = `User U-301 performed 3 action(s) from Mobile in Dhaka.`
-
   `{
   userId: "U-301",
   device: "Mobile",
@@ -126,15 +117,6 @@ Each activity record (fields may be missing — use `?.` and `??`):
   { day: 5, meta: { completed: true } },
   { day: 6, meta: { completed: true } }
 ])` ➔
-
-  **Manual Verify:**
-  - Completed days: 1, 2, 4, 5, 6
-  - Streak 1: days 1–2 → length 2
-  - Gap at day 3 (not completed)
-  - Streak 2: days 4–5–6 → length 3
-  - longestStreak = 3, currentStreak = 3 (last streak)
-  - totalCompleted = 5
-  - streakStatus = `Current streak: 3 day(s). Best: 3 day(s).`
 
   `{
   totalCompleted: 5,
@@ -195,13 +177,6 @@ Must receive at least 1 additional session
   { actions: ["checkout"], pagesVisited: ["/checkout", "/profile"] }
 )` ➔
 
-  **Manual Verify:**
-  - actions = ["login","view-home","view-products","add-to-cart","checkout"] → totalActions=5
-  - pagesVisited all: ["/home","/profile","/products","/home","/checkout","/profile"]
-  - unique: ["/home","/profile","/products","/checkout"] → uniquePages=4
-  - mergedSessions = 2+1 = 3
-  - mergeSummary = `3 session(s) merged. 5 total action(s). 4 unique page(s) visited.`
-
   `{
   userId: "U-401",
   startedAt: "2025-01-01",
@@ -260,15 +235,6 @@ Each session object (fields may be missing — use `?.` and `??`):
   { sessionId: "S2", meta: { duration: 3, actionsCount: 2, bounced: true } },
   { sessionId: "S3", meta: { duration: 7, actionsCount: 8, bounced: false } }
 ])` ➔
-
-  **Manual Verify:**
-  - totalSessions = 3
-  - avgDuration = (10+3+7)/3 = 20/3 = 6.67
-  - avgActionsPerSession = (12+2+8)/3 = 22/3 = 7.33
-  - bounceRate = 1/3 × 100 = 33.33
-  - mostActiveSessions: actionsCount > 7.33 → S1(12) ✓, S2(2) ✗, S3(8) ✓
-  - engagementLevel: 7.33 → 5–9.99 → "MEDIUM"
-  - patternSummary = `3 session(s) analyzed. Engagement: MEDIUM. Bounce rate: 33.33%.`
 
   `{
   totalSessions: 3,
@@ -335,15 +301,6 @@ Each session object (fields may be missing — use `?.` and `??`):
     { userId: "U3", username: "Zara", stats: { totalActions: 25, streakDays: 5, completionRate: 70 } }
   ]
 )` ➔
-
-  **Manual Verify:**
-  - Rafi: (20×2)+(7×5)+80 = 40+35+80 = 155
-  - Mila: (15×2)+(10×5)+90 = 30+50+90 = 170
-  - Zara: (25×2)+(5×5)+70 = 50+25+70 = 145
-  - Sort desc: Mila(170) → rank1, Rafi(155) → rank2, Zara(145) → rank3
-  - Mila: `🥇 #1 Mila — Score: 170`
-  - Rafi: `🥈 #2 Rafi — Score: 155`
-  - Zara: `🥉 #3 Zara — Score: 145`
 
   `[
   { rank: 1, medal: "🥇", userId: "U2", username: "Mila", activityScore: 170, leaderboardEntry: "🥇 #1 Mila — Score: 170" },
