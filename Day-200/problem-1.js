@@ -45,9 +45,13 @@ const decideScholarshipAward = (student) => {
 };
 
 // --- EXAMPLE USAGE ---
-console.log(decideScholarshipAward({
-    cgpa: 3.8,
-    familyIncomeAnnual: 150000,
-    extracurricularScore: 70,
-    disciplinaryFlags: 0
-}));
+if (require.main === module) {
+    console.log(decideScholarshipAward({
+        cgpa: 3.8,
+        familyIncomeAnnual: 150000,
+        extracurricularScore: 70,
+        disciplinaryFlags: 0
+    }));
+}
+
+module.exports = { decideScholarshipAward };

@@ -36,11 +36,15 @@ const decideClaimSettlement = (claim) => {
 };
 
 // --- EXAMPLE USAGE ---
-console.log(decideClaimSettlement({
-    policyActive: true,
-    damageEstimate: 100000,
-    policyLimit: 80000,
-    deductible: 5000,
-    atFaultPercent: 20,
-    previousClaimsThisYear: 1
-}));
+if (require.main === module) {
+    console.log(decideClaimSettlement({
+        policyActive: true,
+        damageEstimate: 100000,
+        policyLimit: 80000,
+        deductible: 5000,
+        atFaultPercent: 20,
+        previousClaimsThisYear: 1
+    }));
+}
+
+module.exports = { decideClaimSettlement };

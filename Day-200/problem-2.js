@@ -40,9 +40,13 @@ const decideRentalApplication = (applicant, monthlyRent) => {
 };
 
 // --- EXAMPLE USAGE ---
-console.log(decideRentalApplication({
-    monthlyIncome: 60000,
-    creditScore: 700,
-    hasEvictionHistory: false,
-    hasPets: true
-}, 18000));
+if (require.main === module) {
+    console.log(decideRentalApplication({
+        monthlyIncome: 60000,
+        creditScore: 700,
+        hasEvictionHistory: false,
+        hasPets: true
+    }, 18000));
+}
+
+module.exports = { decideRentalApplication };
