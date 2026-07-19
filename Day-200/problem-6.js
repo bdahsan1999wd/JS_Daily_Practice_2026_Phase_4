@@ -43,9 +43,13 @@ const decideVisaApplication = (applicant) => {
 };
 
 // --- EXAMPLE USAGE ---
-console.log(decideVisaApplication({
-    bankBalance: 50000,
-    hasSponsorLetter: true,
-    previousVisaRejections: 0,
-    travelPurpose: "TOURISM"
-}));
+if (require.main === module) {
+    console.log(decideVisaApplication({
+        bankBalance: 50000,
+        hasSponsorLetter: true,
+        previousVisaRejections: 0,
+        travelPurpose: "TOURISM"
+    }));
+}
+
+module.exports = { decideVisaApplication };

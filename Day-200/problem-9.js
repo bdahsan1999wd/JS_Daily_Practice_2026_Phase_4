@@ -41,9 +41,13 @@ const recommendShippingMethod = (order) => {
 };
 
 // --- EXAMPLE USAGE ---
-console.log(recommendShippingMethod({
-    weightKg: 15,
-    destinationDistanceKm: 300,
-    isFragile: true,
-    customerWantsExpress: true
-}));
+if (require.main === module) {
+    console.log(recommendShippingMethod({
+        weightKg: 15,
+        destinationDistanceKm: 300,
+        isFragile: true,
+        customerWantsExpress: true
+    }));
+}
+
+module.exports = { recommendShippingMethod };

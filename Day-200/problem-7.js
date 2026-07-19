@@ -36,10 +36,14 @@ const decideConstructionPermit = (application) => {
 };
 
 // --- EXAMPLE USAGE ---
-console.log(decideConstructionPermit({
-    plotAreaSqFt: 2000,
-    proposedFloors: 3,
-    setbackCompliant: true,
-    environmentalClearance: true,
-    zoneType: "RESIDENTIAL"
-}));
+if (require.main === module) {
+    console.log(decideConstructionPermit({
+        plotAreaSqFt: 2000,
+        proposedFloors: 3,
+        setbackCompliant: true,
+        environmentalClearance: true,
+        zoneType: "RESIDENTIAL"
+    }));
+}
+
+module.exports = { decideConstructionPermit };

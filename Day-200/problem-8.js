@@ -40,7 +40,11 @@ const decideMatchmaking = (players) => {
 };
 
 // --- EXAMPLE USAGE ---
-console.log(decideMatchmaking([
-    { playerName: "Shuvo", skillRating: 1500, region: "ASIA", pingMs: 40 },
-    { playerName: "Rakin", skillRating: 1580, region: "ASIA", pingMs: 60 }
-]));
+if (require.main === module) {
+    console.log(decideMatchmaking([
+        { playerName: "Shuvo", skillRating: 1500, region: "ASIA", pingMs: 40 },
+        { playerName: "Rakin", skillRating: 1580, region: "ASIA", pingMs: 60 }
+    ]));
+}
+
+module.exports = { decideMatchmaking };
